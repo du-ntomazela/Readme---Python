@@ -1,16 +1,36 @@
 from matrizes import logo
 from dicionários import noticias
+from dicionários import Pilotos
 
-def num_int(num, msg):
+
+# Funções:
+
+
+def num_int(msg):
     while True:
         x = input(msg)
         if x.isnumeric():
-            break
+            x = int(x)
+            return x
 
-def login_user ():
-    login_matriz = []
-    user_list = []
-    password_list = []
+def opcoes_resposta(lista, msg):
+    while True:
+        print(f"{msg} (selecione uma das opções abaixo)")
+        for i in lista:
+            print(f"- {i}")
+        x = input("-->  ")
+        if x in lista:
+            return x
+
+def opcoes_resposta_sem_print(lista, msg):
+    while True:
+        print(f"{msg} (selecione uma das opções acima)")
+        x = input("-->  ")
+        if x in lista:
+            return x
+
+
+def login_user (login_matriz, user_list, password_list):
     while True:
         teste = input("Você ja possui uma conta? (responda com sim ou não) \n -> ")
         if teste in ["sim", "não"]:
@@ -40,3 +60,38 @@ def login_user ():
         login_matriz.append(password_list)
     return login_matriz
 
+
+
+
+# Listas e variaves padrões:
+
+login_matriz = []
+user_list = []
+password_list = []
+teste_login = 0
+
+
+
+
+# Início do código fonte:
+
+print("Bem vindo a Mahindra Racing!")
+login = opcoes_resposta(["sim", "não"], "Deseja fazer o login?")
+if login == "sim":
+    login = login_user(login_matriz, user_list, password_list)
+    teste_login = 1
+while True:
+    lista_servicos = []
+    servico = opcoes_resposta(["Pilotos", "Notícias", "Família MR"], "Selecione um dos serviços disponiveis em nossa aplicação")
+    if servico == "Pilotos":
+        for x in Pilotos:
+            lista_servicos.append(x)
+        servico = opcoes_resposta(lista_servicos, "Qual piloto você deseja conhecer melhor?")
+        print(Pilotos[servico]["Sobre"])
+    elif servico == "Notícias":
+        for x in noticias:
+            lista_servicos.append(f"{x}")
+            print(f"{x} - {noticias[x]["Título"]}")
+        servico = opcoes_resposta_sem_print(lista_servicos, "Qual Notícia você deseja consultar?")
+        print(noticias[servico]["Título"])
+        print(noticias[servico]["Conteúdo"])
