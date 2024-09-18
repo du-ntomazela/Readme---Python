@@ -1,0 +1,5 @@
+Mr = ["Brasil", "USA", "China", "França", "Argentina"]
+participantes1 = ["Bruno Garcia", "Doug DeMuro", "Qiufeng Che", "Vilebrequin", "MotorBit"]
+participantes2 = ["Aline Füchter", "Adam LZ", "Han Lu", "L’argus", "Carlos Cristófalo"]
+votos1 = [0, 0, 0, 0, 0]
+votos2 = [0, 0, 0, 0, 0]

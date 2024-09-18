@@ -1,23 +1,23 @@
 noticias = {
-    "Notícia1": {
+    "Notícia 1": {
                  "Título":
                      "F-E: Cofundador promete evento 'maior e melhor' em São Paulo",
                  "Conteúdo":
                      "São Paulo será a grande estreia da temporada 2024-25 da Fórmula E.  Alberto Longo, cofundador da categoria de monopostos elétricos, afirmou, em coletiva de imprensa, que evento será 'maior e melhor'. O EP inaugural acontecerá no dia 7 de dezembro deste ano, no sambódromo do Anhembi. Longo elogiou o EP deste ano, que aconteceu em março, citando como a capital paulista acolhe a categoria e é apaixonada pelo automobilismo 'Vocês nos fazem sentir em casa.' 'Não sou só eu que falo isso, como cofundador da F-E, mas falo em nome das escuderias, dos pilotos e das pessoas que assistem e seguem essa paixão'"
                  },
-    "Notícia2": {
+    "Notícia 2": {
                  "Título":
                      "Fórmula E: Guenther é anunciado na Penske como companheiro de Vergne",
                  "Conteúdo":
                      "O alemão substituirá o campeão de 2021/22 Stoffel Vandoorne, que foi confirmado na Maserati MSG em julho. O piloto de 27 anos chega a equipe ítalo-monegasca depois de passar duas temporadas na Maserati, onde venceu duas corridas - Jacarta e Tóquio - mas apresentou incosistências para gaugar uma disputa pelo título, terminando em sétimo e oitavo na classificação de pilotos, respectivamente. "
                  },
-    "Notícia3": {
+    "Notícia 3": {
                  "Título":
                      "F1 - Pourchaire sobre falta de oportunidade: 'Só estou pedindo um assento'",
                  "Conteúdo":
                      "Théo Pourchaire, piloto francês campeão da Fórmula 2 em 2023, contou, em entrevista exclusiva ao Motorsport.com, sobre o ano de 2024, correndo pela Super Fórmula japonesa, e aguardando pela oportunidade na Fórmula 1. O piloto júnior da Sauber demontrou insatisfação que outros pilotos jovens, como Andrea Kimi Antonelli e Oliver Bearman, terem oportunidades antes dele, pulando etapas na F2. Confira conversa completa com Pourchaire."
                  },
-    "Notícia4": {
+    "Notícia 4": {
                  "Título":
                      "Vice-campeão da F-E comenta permanência de Pérez na Red Bull: 'Continua trazendo dinheiro'",
                  "Conteúdo":
@@ -36,3 +36,6 @@ Pilotos = {
             "A carreira de Edoardo em monopostos começou em 2006 com uma dupla campanha italiana e europeia na Fórmula Renault, conquistando o título de Novato na primeira. Depois, ele foi para a Fórmula 3 Euroseries, conquistando o campeonato em 2010. No mesmo ano, ele também conquistou a segunda de suas sete vitórias nas ruas de Macau até o momento, tendo triunfado pela primeira vez um ano antes. Com seu status de 'um para assistir' confirmado em um cenário global, Mortara então aproveitou passagens pela GP2 Series e Fórmula Renault 3.5, antes de fazer sua estreia no DTM em 2011. Nos seis anos seguintes, Edo se tornou um nome conhecido na série, correndo por nomes como Audi e DTM. Seu melhor resultado foi o 2º lugar em 2016. Edo fez sua estreia na Fórmula E em Hong Kong na Temporada 4, marcando seu primeiro pódio em apenas sua segunda corrida no campeonato. Ele obteve sua primeira vitória no mesmo local um ano depois e, desde então, somou mais cinco triunfos – mais seis pódios adicionais – para se estabelecer como um dos nomes conhecidos da série. Mortara se junta à Mahindra Racing para a 10ª temporada com a ambição de usar sua velocidade, experiência e habilidade de corrida para ajudar a equipe a retornar ao caminho da vitória no futuro."
     }
 }
+
+
+

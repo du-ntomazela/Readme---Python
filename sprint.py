@@ -1,6 +1,7 @@
 from matrizes import logo
 from dicionários import noticias
 from dicionários import Pilotos
+from Listas import Mr, participantes1, participantes2, votos1, votos2
 
 
 # Funções:
@@ -95,3 +96,18 @@ while True:
         servico = opcoes_resposta_sem_print(lista_servicos, "Qual Notícia você deseja consultar?")
         print(noticias[servico]["Título"])
         print(noticias[servico]["Conteúdo"])
+    elif servico == "Família MR":
+        if teste_login == 1:
+
+            
+
+
+
+
+        else:
+            print("Você precisa efetuar o login para poder votar!")
+            login = opcoes_resposta(["sim", "não"], "Deseja fazer o login para poder votar?")
+            if login == "sim":
+                login = login_user(login_matriz, user_list, password_list)
+                teste_login = 1
+
