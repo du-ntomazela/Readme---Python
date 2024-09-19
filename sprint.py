@@ -81,7 +81,7 @@ def login_user (login_matriz, user_list, password_list):
         while new_user in user_list:
              new_user = input("Informe um usuário: ")
         new_password = input("Informe uma senha: ")
-        confirmn_password = input("Confirme a sua senha")
+        confirmn_password = input("Confirme a sua senha: ")
         while new_password != confirmn_password or new_password in password_list:
             print("As senhas devem coincidir!")
             new_password = input("Informe uma senha: ")
@@ -100,8 +100,8 @@ def login_user (login_matriz, user_list, password_list):
 
 login_matriz = []
 
-user_list = ["Léo", "Eduardo", "Luiz", "Ale", "Herbert"]
-password_list = ["4123910784", "74123", "107439", "569324780", "123456789"]
+user_list = ["Léo", "Eduardo", "Luiz", "Alexandre", "Herbert"]
+password_list = ["4123910784", "74123", "107439", "569324780", "123456-=789"]
 teste_login = 0
 
 
@@ -110,7 +110,7 @@ teste_login = 0
 # Início do código fonte:
 
 print("Bem vindo a Mahindra Racing!")
-login = opcoes_resposta(["sim", "não"], "Deseja fazer o login?")
+login = opcoes_resposta(["sim", "não"], "Deseja fazer o login? \n --> ")
 if login == "sim":
     login = login_user(login_matriz, user_list, password_list)
     teste_login = 1
