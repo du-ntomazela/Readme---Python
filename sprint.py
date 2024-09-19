@@ -6,6 +6,19 @@ from Listas import Mr, participantes1, participantes2, votos1, votos2
 
 # Funções:
 
+def existe_na_lista(info, lista):
+    for i in lista:
+        if i == info:
+            return True
+    return False
+
+
+
+def acha_index (info, lista):
+    for i in range (len(lista)):
+        if info == lista[i]:
+            return i
+
 
 def num_int(msg):
     while True:
@@ -30,6 +43,23 @@ def opcoes_resposta_sem_print(lista, msg):
         if x in lista:
             return x
 
+def votar ():
+    lista_candidatos = []
+    resposta = opcoes_resposta(Mr, "Escolha um dos países acima: ")
+    i = acha_index(resposta, Mr)
+    lista_candidatos.append(participantes1[i])
+    lista_candidatos.append(participantes2[i])
+    resposta = opcoes_resposta(lista_candidatos, "Em qual candidato você deseja votar: ")
+    resposta2 = existe_na_lista(resposta, participantes1)
+    if resposta2:
+        votos1[i] += 1
+    else:
+        votos2[i] += 1
+
+def print_resultados():
+    for i in range(len(Mr)):
+        print(f"{Mr[i]}: \n  {participantes1[i]} - {votos1[i]} votos \n  {participantes2[i]} - {votos2[i]} votos")
+
 
 def login_user (login_matriz, user_list, password_list):
     while True:
@@ -40,7 +70,8 @@ def login_user (login_matriz, user_list, password_list):
         user = input("Informe o seu usuário: ")
         password = input("Informe a sua senha: ")
         if user in user_list and password in password_list:
-            return user
+            usuário_atual = user
+            return True
         else:
             teste = "não"
             print("Usuario ou senha não correspondentes!")
@@ -59,6 +90,7 @@ def login_user (login_matriz, user_list, password_list):
         password_list.append(new_password)
         login_matriz.append(user_list)
         login_matriz.append(password_list)
+
     return login_matriz
 
 
@@ -67,8 +99,9 @@ def login_user (login_matriz, user_list, password_list):
 # Listas e variaves padrões:
 
 login_matriz = []
-user_list = []
-password_list = []
+
+user_list = ["Léo", "Eduardo", "Luiz", "Ale", "Herbert"]
+password_list = ["4123910784", "74123", "107439", "569324780", "123456789"]
 teste_login = 0
 
 
@@ -98,16 +131,33 @@ while True:
         print(noticias[servico]["Conteúdo"])
     elif servico == "Família MR":
         if teste_login == 1:
+            votar()
+            resultados = opcoes_resposta(["sim", "não" ], "Deseja ver como está a votação? \n --> ")
+            if resultados == "sim":
+                print_resultados()
 
-            
 
 
+    else:
+        print("Você precisa efetuar o login para poder votar!")
+        login = opcoes_resposta(["sim", "não"], "Deseja fazer o login para poder votar?")
+        if login == "sim":
+            login = login_user(login_matriz, user_list, password_list)
+            teste_login = 1
+            votar()
+            resultados = opcoes_resposta(["sim", "não"], "Deseja ver como está a votação? \n --> ")
+            if resultados == "sim":
+                print_resultados()
 
+    continuar = opcoes_resposta(["sim", "não"], "deseja continuar navegando pela aplicação? \n -->")
+    if continuar == "não":
+        break
 
-        else:
-            print("Você precisa efetuar o login para poder votar!")
-            login = opcoes_resposta(["sim", "não"], "Deseja fazer o login para poder votar?")
-            if login == "sim":
-                login = login_user(login_matriz, user_list, password_list)
-                teste_login = 1
+if teste_login == 1:
+    print("Obrigado pela visita! Volte sempre")
+    from matrizes import logo
+else:
+    print("Obrigado pela visita, na próxima vez, cadastre-se para poder votar em nossos candidatos!")
+    from matrizes import logo
+
 
