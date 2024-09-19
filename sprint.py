@@ -155,9 +155,9 @@ while True:
 
 if teste_login == 1:
     print("Obrigado pela visita! Volte sempre")
-    from matrizes import logo
+    logo()
 else:
     print("Obrigado pela visita, na próxima vez, cadastre-se para poder votar em nossos candidatos!")
-    from matrizes import logo
+    logo()
 
 
