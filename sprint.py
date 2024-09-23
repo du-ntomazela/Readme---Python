@@ -27,13 +27,18 @@ def num_int(msg):
             x = int(x)
             return x
 
-def opcoes_resposta(lista, msg):
+def opcoes_resposta(lista1, msg):
     while True:
         print(f"{msg} (selecione uma das opções abaixo)")
-        for i in lista:
+        for i in lista1:
             print(f"- {i}")
         x = input("-->  ")
-        if x in lista:
+        x = x.lower()
+        lista2 = []
+        for i in lista1:
+            i = i.lower()
+            lista2.append(i)
+        if x in lista2:
             return x
 
 def opcoes_resposta_sem_print(lista, msg):
@@ -60,10 +65,27 @@ def print_resultados():
     for i in range(len(Mr)):
         print(f"{Mr[i]}: \n  {participantes1[i]} - {votos1[i]} votos \n  {participantes2[i]} - {votos2[i]} votos")
 
+def opcoes_resposta_servicos(lista1, msg):
+    while True:
+        print(f"{msg} (selecione uma das opções abaixo)")
+        for i in lista1:
+            print(f"- {i}")
+        x = input("-->  ")
+        x = x.lower()
+        lista2 = []
+        for i in lista1:
+            i = i.lower()
+            lista2.append(i)
+        for i in range(len(lista2)):
+            if x == lista2[i]:
+                return lista1[i]
+
+
+
 
 def login_user (login_matriz, user_list, password_list):
     while True:
-        teste = input("Você ja possui uma conta? (responda com sim ou não) \n -> ")
+        teste = opcoes_resposta(["sim", "não"], "Você ja possui uma conta?")
         if teste in ["sim", "não"]:
             break
     if teste == "sim":
@@ -117,39 +139,37 @@ if login == "sim":
 while True:
     lista_servicos = []
     servico = opcoes_resposta(["Pilotos", "Notícias", "Família MR"], "Selecione um dos serviços disponiveis em nossa aplicação")
-    if servico == "Pilotos":
+    if servico == "pilotos":
         for x in Pilotos:
             lista_servicos.append(x)
-        servico = opcoes_resposta(lista_servicos, "Qual piloto você deseja conhecer melhor?")
+        servico = opcoes_resposta_servicos(lista_servicos, "Qual piloto você deseja conhecer melhor?")
         print(Pilotos[servico]["Sobre"])
-    elif servico == "Notícias":
+    if servico == "notícias":
         for x in noticias:
             lista_servicos.append(f"{x}")
             print(f"{x} - {noticias[x]["Título"]}")
         servico = opcoes_resposta_sem_print(lista_servicos, "Qual Notícia você deseja consultar?")
         print(noticias[servico]["Título"])
         print(noticias[servico]["Conteúdo"])
-    elif servico == "Família MR":
+    if servico == "família mr":
         if teste_login == 1:
             votar()
             resultados = opcoes_resposta(["sim", "não" ], "Deseja ver como está a votação? \n --> ")
             if resultados == "sim":
                 print_resultados()
+        else:
+            print("Você precisa efetuar o login para poder votar!")
+            login = opcoes_resposta(["sim", "não"], "Deseja fazer o login para poder votar?")
+            if login == "sim":
+                login = login_user(login_matriz, user_list, password_list)
+                teste_login = 1
+                votar()
+                resultados = opcoes_resposta(["sim", "não"], "Deseja ver como está a votação? \n --> ")
+                if resultados == "sim":
+                 print_resultados()
+    print()
 
-
-
-    else:
-        print("Você precisa efetuar o login para poder votar!")
-        login = opcoes_resposta(["sim", "não"], "Deseja fazer o login para poder votar?")
-        if login == "sim":
-            login = login_user(login_matriz, user_list, password_list)
-            teste_login = 1
-            votar()
-            resultados = opcoes_resposta(["sim", "não"], "Deseja ver como está a votação? \n --> ")
-            if resultados == "sim":
-                print_resultados()
-
-    continuar = opcoes_resposta(["sim", "não"], "deseja continuar navegando pela aplicação? \n -->")
+    continuar = opcoes_resposta(["sim", "não"], "Deseja continuar navegando pela aplicação? \n -->")
     if continuar == "não":
         break
 
