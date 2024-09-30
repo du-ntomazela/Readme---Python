@@ -11,17 +11,18 @@ from Listas import Mr, participantes1, participantes2, votos1, votos2
 #1
 def existe_na_lista(info, lista):
     for i in lista:
-        if i == info:
+        i = i.lower()
+        if i == info.lower():
             return True
     return False
 
 
 #2
 def acha_index (info, lista):
+    info = info.lower()
     for i in range (len(lista)):
-        lista[i] = lista[i].lower()
-        if info == lista[i]:
-            print(i)
+        x = lista[i].lower()
+        if info == x:
             return i
 
 #3
@@ -57,7 +58,6 @@ def votar ():
     lista_candidatos = []
     resposta = opcoes_resposta(Mr, "Escolha um dos países abaixo: ")
     i = acha_index(resposta, Mr)
-    print(i)
     lista_candidatos.append(participantes1[i])
     lista_candidatos.append(participantes2[i])
     resposta = opcoes_resposta(lista_candidatos, "Em qual candidato você deseja votar: ")
