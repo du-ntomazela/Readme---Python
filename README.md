@@ -45,10 +45,11 @@ para assim gerar um conteúdo cada vez melhor.
 
 # Instruções de uso:
 
-- **Usuário padrão:** "fiap2024"
-- **Senha padrão:** "1234"
+- **Usuários padrão:** "Léo", "Eduardo", "Luiz", "Alexandre", "Herbert"
+- **Senhas padrão:** "4123910784", "74123", "107439", "569324780", "123456789"
+- **(Os usuários e senhas são correspondentes, ou seja, primeiro usuário, primeira senha... e assim por diante)
 - **Para acessar cada funcionalidade deve digitar o nome dela quando requisitado na aplicação**
-- **Funcionalidades:** Pilotos / Veículos / Votação / Notícias
+- **Funcionalidades:** Pilotos / Votação / Notícias
 - **Foco da solução está na funcionalidade: "Votação"**
 - **Como executar a aplicação:** Primeiro deve clonar o repositorio em que ela se encontra no GitHub, em segundo, o arquivo com formato ".py" deve ser executado devidamente com um interpretador de python devido em sua IDE.
 - **IDE recomendada:** PyCharm

@@ -1,14 +1,8 @@
-from matrizes import logo
-from dicionários import noticias
-from dicionários import Pilotos
+
 from Listas import Mr, participantes1, participantes2, votos1, votos2
 
 
-# Funções:
-
-# As funções abaixo foram enumeradas em ordem crescente para que possam ser analisadas no arquivo Teste_functions
-
-#1
+#1 -  essa primeira função recebe um parametro de uma variavel(pode ser um string, booleano, integer, ou float) e recebe uma lista como segundo parametro, e verifica se o primeiro parametro está na lista que foi passada como parametro retornando True para presente e False para ausente.
 def existe_na_lista(info, lista):
     for i in lista:
         if i == info:
@@ -16,7 +10,7 @@ def existe_na_lista(info, lista):
     return False
 
 
-#2
+#2 - Essa função recebe um parametro de uma variavel(pode ser um string, booleano, integer, ou float) e recebe um segundo parametro (uma lista), essa função tenta encontrar o valor passado no primeiro paramtro dentro da lista que foi passada como o segundo parametro, e retorna o inice em que o primeiro parametro está na lista.
 def acha_index (info, lista):
     for i in range (len(lista)):
         lista[i] = lista[i].lower()
@@ -24,14 +18,14 @@ def acha_index (info, lista):
             print(i)
             return i
 
-#3
+#3 - uma função que recebe um valor de uma string como parametro(uma mensagem para instruir o usuario sobre o que está sendo pedido) e que é ultilizada para pedir ao usuario um número inteiro, e que caso não seja, pede novamente.
 def num_int(msg):
     while True:
         x = input(msg)
         if x.isnumeric():
             x = int(x)
             return x
-#4
+#4 - Essa função recebe dois parametro, uma lista com as possiveis respostas que o usuário pode digitar, e uma mensagem que vai guiar o usuario sobre o que está sendo requisitado, e vai mostrar ao usuario as opções de resposta, e enquanto o input do usuario não estiver presente na lista parametro, pede novamente o input.
 def opcoes_resposta(lista1, msg):
     while True:
         print(f"{msg} (selecione uma das opções abaixo)")
@@ -45,14 +39,15 @@ def opcoes_resposta(lista1, msg):
             lista2.append(i)
         if x in lista2:
             return x
-#5
+#5 - Essa função recebe dois parametro, uma lista com as possiveis respostas que o usuário pode digitar, e uma mensagem que vai guiar o usuario sobre o que está sendo requisitado, sem mostrar as opções de respostas, e enquanto o input do usuario não estiver presente na lista parametro, pede novamente o input.
+
 def opcoes_resposta_sem_print(lista, msg):
     while True:
         print(f"{msg} (selecione uma das opções acima)")
         x = input("-->  ")
         if x in lista:
             return x
-#6
+#6 - Essa função é a principal funcionalidade da nossa aplicação! Ela é ultilizada para entrar a fundo nas informações dos participantes da solução, e assim votar no participante escolhido, essa função não precisa de parametros. Para acessar essa função, o usuário deve estar logado!
 def votar ():
     lista_candidatos = []
     resposta = opcoes_resposta(Mr, "Escolha um dos países abaixo: ")
@@ -67,12 +62,12 @@ def votar ():
     else:
         votos2[i] += 1
 
-#7
+#7 - Essa função é executada caso o usuário queira ver como está indo a votação, logo após ter votado.
 def print_resultados():
     for i in range(len(Mr)):
         print(f"{Mr[i]}: \n  {participantes1[i]} - {votos1[i]} votos \n  {participantes2[i]} - {votos2[i]} votos")
 
-#8
+#8 - Essa função é ultilizada para acessar uma das funcionalidades da aplicação, ela precisa de dois parametros: a lista dos serviços disponiveis e uma mensagem de instrução que vai aparecer antes do usuario responder o input.
 def opcoes_resposta_servicos(lista1, msg):
     while True:
         print(f"{msg} (selecione uma das opções abaixo)")
@@ -80,17 +75,13 @@ def opcoes_resposta_servicos(lista1, msg):
             print(f"- {i}")
         x = input("-->  ")
         x = x.lower()
-        lista2 = []
-        for i in lista1:
-            i = i.lower()
-            lista2.append(i)
-        for i in range(len(lista2)):
-            if x == lista2[i]:
+        for i in range(len(lista1)):
+            if x == lista1[i].lower():
                 return lista1[i]
 
 
 
-#9
+#9 -  Essa função coordena os casos em que o usuario ja possui um login e senha e o caso em que ainda não possui ambos, e redireciona para outras funções dependendo do caso de haver ou não um login.
 def login_user (login_matriz, user_list, password_list):
     while True:
         teste = opcoes_resposta(["sim", "não"], "Você ja possui uma conta?")
@@ -103,18 +94,18 @@ def login_user (login_matriz, user_list, password_list):
     if teste == "não":
         teste_nao(login_matriz, user_list, password_list)
     return login_matriz
-#10
+
+#10 - Primeira segmentação da função de login de numero (9), caso em que o usuário selecionou que ja possui um login e uma senha, mas caso não correspondam com nenhum registro da aplicação redireciona para a função de criaqção de um novo login e senha.
 def teste_sim ( user_list, password_list):
     user = input("Informe o seu usuário: ")
     password = input("Informe a sua senha: ")
     if user in user_list and password in password_list:
-        usuário_atual = user
         return True
     else:
         teste = "não"
         print("Usuario ou senha não correspondentes!")
 
-#11
+#11 - Segunda segmentação da função de login de numero (9), caso em que o usuario não possui um login e uma senha, essa função registra um novo login, e uma nova senha(essa função exige uma verificação de senha, então é requisitado que o usuário digite duas vezes a mesma senha, e caso não correspondam, pede uma nova senha que tambem será confirmada.).
 def teste_nao(login_matriz, user_list, password_list):
     print("Vamos criar uma nova conta de acesso!")
     new_user = input("Informe um usuário: ")
@@ -131,69 +122,3 @@ def teste_nao(login_matriz, user_list, password_list):
     login_matriz.append(user_list)
     login_matriz.append(password_list)
     return login_matriz
-
-
-
-# Listas e variaves padrões:
-
-login_matriz = []
-
-user_list = ["Léo", "Eduardo", "Luiz", "Alexandre", "Herbert"]
-password_list = ["4123910784", "74123", "107439", "569324780", "123456789"]
-teste_login = 0
-
-
-
-
-# Início do código fonte:
-
-print("Bem vindo a Mahindra Racing!")
-login = opcoes_resposta(["sim", "não"], "Deseja fazer o login? \n --> ")
-if login == "sim":
-    login = login_user(login_matriz, user_list, password_list)
-    teste_login = 1
-while True:
-    lista_servicos = []
-    servico = opcoes_resposta(["Pilotos", "Notícias", "Família MR"], "Selecione um dos serviços disponiveis em nossa aplicação")
-    if servico == "pilotos":
-        for x in Pilotos:
-            lista_servicos.append(x)
-        servico = opcoes_resposta_servicos(lista_servicos, "Qual piloto você deseja conhecer melhor?")
-        print(Pilotos[servico]["Sobre"])
-    if servico == "notícias":
-        for x in noticias:
-            lista_servicos.append(f"{x}")
-            print(f"{x} - {noticias[x]["Título"]}")
-        servico = opcoes_resposta_sem_print(lista_servicos, "Qual Notícia você deseja consultar?")
-        print(noticias[servico]["Título"])
-        print(noticias[servico]["Conteúdo"])
-    if servico == "família mr":
-        if teste_login == 1:
-            votar()
-            resultados = opcoes_resposta(["sim", "não" ], "Deseja ver como está a votação? \n --> ")
-            if resultados == "sim":
-                print_resultados()
-        else:
-            print("Você precisa efetuar o login para poder votar!")
-            login = opcoes_resposta(["sim", "não"], "Deseja fazer o login para poder votar?")
-            if login == "sim":
-                login = login_user(login_matriz, user_list, password_list)
-                teste_login = 1
-                votar()
-                resultados = opcoes_resposta(["sim", "não"], "Deseja ver como está a votação? \n --> ")
-                if resultados == "sim":
-                 print_resultados()
-    print()
-
-    continuar = opcoes_resposta(["sim", "não"], "Deseja continuar navegando pela aplicação? \n -->")
-    if continuar == "não":
-        break
-
-if teste_login == 1:
-    print("Obrigado pela visita! Volte sempre")
-    logo()
-else:
-    print("Obrigado pela visita, na próxima vez, cadastre-se para poder votar em nossos candidatos!")
-    logo()
-
-
